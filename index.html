@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EGG | Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="icons/simple.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="logo-container">
+            <img src="icons/logo.png" alt="EGGO Logo" class="logo">
+        </a>
+        <div class="nav-content">
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="education.html">Education</a>
+                <a href="scholarships.html">Scholarships</a>
+                <a href="jobs.html">Jobs</a>
+                <a href="volunteer.html">Volunteering</a>
+                <a href="support.html">Support</a>
+            </div>
+            <div class="search-container">
+                <img src="icons/search.png" alt="Search" class="search-icon">
+                <input type="text" placeholder="Search" class="search-bar">
+            </div>
+        </div>
+        <a href="carton.html" class="cart-container">
+            <img src="icons/carton.png" alt="Cart" class="cart-icon">
+            <span class="cart-text">Your carton</span>
+        </a>
+    </nav>
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-item active" data-link="education.html">
+                <img src="images/c1.png" alt="C1">
+            </div>
+            <div class="carousel-item" data-link="education.html">
+                <img src="images/c3.png" alt="C2">
+            </div>
+            <div class="carousel-item" data-link="education.html">
+                <img src="images/c2.png" alt="C3">
+            </div>
+            <div class="carousel-item">
+                <a href="https://voterregistration.ct.gov/OLVR/welcome.do">
+                    <img src="images/c4.png" alt="C4">
+                </a>
+            </div>
+            <div class="carousel-item" data-link="education.html">
+                <img src="images/c5.png" alt="C5">
+            </div>
+        </div>
+        <button class="carousel-btn left-btn">
+            <img src="icons/left.png" alt="Left">
+        </button>
+        <button class="carousel-btn right-btn">
+            <img src="icons/right.png" alt="Right">
+        </button>
+        <div class="carousel-indicators">
+            <span class="indicator active"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const indicators = document.querySelectorAll('.indicator');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active', 'prev', 'next');
+                if (i === index) {
+                    slide.classList.add('active');
+                } else if (i === (index - 1 + slides.length) % slides.length) {
+                    slide.classList.add('prev');
+                } else if (i === (index + 1) % slides.length) {
+                    slide.classList.add('next');
+                }
+            });
+
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        document.querySelector('.right-btn').addEventListener('click', nextSlide);
+        document.querySelector('.left-btn').addEventListener('click', prevSlide);
+
+        indicators.forEach((indicator, i) => {
+            indicator.addEventListener('click', () => {
+                currentSlide = i;
+                showSlide(currentSlide);
+            });
+        });
+
+        document.querySelectorAll('.carousel-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const link = item.getAttribute('data-link');
+                if (link) {
+                    window.location.href = link;
+                }
+            });
+        });
+
+        // Automatically cycle through slides
+        setInterval(nextSlide, 4000);
+
+        // Initialize the first slide as active
+        showSlide(currentSlide);
+    </script>
+
+</body>
+</html>
+
