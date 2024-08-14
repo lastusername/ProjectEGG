@@ -6,16 +6,7 @@ import { getDatabase, ref, set} from "firebase/Database";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyAKo9QEVjcLHyUtp5Jt5Vq7f5ea9hyPZKg",
-  authDomain: "projectegg-55230.firebaseapp.com",
-  databaseURL: "https://projectegg-55230-default-rtdb.firebaseio.com",
-  projectId: "projectegg-55230",
-  storageBucket: "projectegg-55230.appspot.com",
-  messagingSenderId: "132251004958",
-  appId: "1:132251004958:web:74bfd9a4643790a335fe0f",
-  measurementId: "G-PNE98CLNZH"
-};
+
 
 const app = initializeApp(firebaseConfig);
 
