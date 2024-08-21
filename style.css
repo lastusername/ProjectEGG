@@ -69,17 +69,25 @@ body {
     color: #808080;
 }
 
-.cart-container:hover {
+/* Styles for when the button is hovered over or active */
+.cart-container:hover, 
+.cart-container:active, 
+.cart-container.active {
     background-color: #f1c232ff;
 }
 
-.cart-container:hover .cart-text {
+.cart-container:hover .cart-text, 
+.cart-container:active .cart-text, 
+.cart-container.active .cart-text {
     color: white;
 }
 
-.cart-container:hover .cart-icon {
+.cart-container:hover .cart-icon, 
+.cart-container:active .cart-icon, 
+.cart-container.active .cart-icon {
     filter: brightness(0) invert(1);
 }
+
 
 .nav-content {
     display: flex;
