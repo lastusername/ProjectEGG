@@ -426,3 +426,29 @@ body {
 }
 
 
+.custom-button {
+    width: 23%; /* Adjust the width as needed */
+    aspect-ratio: 1 / 1; /* Maintain a square aspect ratio */
+    background-color: #f1c232ff; /* No background color */
+    border-radius: 13px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 0;
+}
+
+.custom-button img {
+    width: 100%; /* Adjust this percentage to increase/decrease image size */
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire button */
+    border-radius: 13px; /* Rounded corners for the image */
+}
+
+.custom-button:hover,
+.custom-button:focus {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
